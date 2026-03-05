@@ -4,8 +4,8 @@
 
 
 import './App.css'
-import { AuthProvider } from './contexts/AuthContext'
-import AppRoutes from './routes/AppRoutes'
+import { AuthProvider } from './context/AuthContext'
+import AppRoutes from './router/AppRouter'
 
 function App() {
   return (
