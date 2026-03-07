@@ -9,7 +9,8 @@ import DashboardPage from '../pages/dashboard/Dashboard'
 
 // - Pages (cada compañero agrega el import de su página aquí)
 import LoginPage from '../pages/auth/Login'
-
+import NewVisit from '../pages/visits/NewVisit'
+import VisitList from '../pages/visits/VisitList'
 // import RegisterPage from '../pages/auth/Register'
 
 export default function AppRoutes() {
@@ -27,6 +28,8 @@ export default function AppRoutes() {
                 {/* Rutas protegidas: layout con Sidebar + contenido */}
                 <Route path="/"element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
                     <Route path="dashboard" element={<DashboardPage />} />
+                    <Route path="visits/new" element={<NewVisit />} />
+                    <Route path="visits/list" element={<VisitList />} />
                 </Route>
             </Routes>
         </BrowserRouter>

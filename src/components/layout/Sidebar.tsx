@@ -53,6 +53,92 @@ export default function Sidebar() {
       {/* Usuario + Cerrar sesión */}
       <div style={styles.userPanel}>
         <div style={styles.userInfo}>
+      {/* Navegación */}
+      <nav style={{ padding: '16px' }}>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <li style={{ marginBottom: 8 }}>
+            <button
+              onClick={() => navigate('/dashboard')}
+              style={{
+                width: '100%',
+                padding: '10px 12px',
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                textAlign: 'left',
+                cursor: 'pointer',
+                borderRadius: 4,
+                fontSize: 14,
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
+              onMouseOut={(e) => (e.currentTarget.style.background = 'none')}
+            >
+              Dashboard
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigate('/visits/new')}
+              style={{
+                width: '100%',
+                padding: '10px 12px',
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                textAlign: 'left',
+                cursor: 'pointer',
+                borderRadius: 4,
+                fontSize: 14,
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
+              onMouseOut={(e) => (e.currentTarget.style.background = 'none')}
+            >
+              Nueva Visita
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => navigate('/visits/list')}
+              style={{
+                width: '100%',
+                padding: '10px 12px',
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                textAlign: 'left',
+                cursor: 'pointer',
+                borderRadius: 4,
+                fontSize: 14,
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
+              onMouseOut={(e) => (e.currentTarget.style.background = 'none')}
+            >
+              Lista de Visitas
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      {/* Espacio flexible para que el bloque de abajo quede al fondo */}
+      <div style={{ flex: 1, minHeight: 0 }} />
+
+      {/* Abajo: usuario + Cerrar sesión */}
+      <div
+        style={{
+          marginTop: 'auto',
+          padding: 16,
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          background: '#1A2130',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            marginBottom: 14,
+          }}
+        >
           <Avatar name={displayName} size={40} />
           <div style={styles.userText}>
             <p style={styles.userName}>{displayName}</p>
