@@ -11,6 +11,7 @@ import DashboardPage from '../pages/dashboard/Dashboard'
 import LoginPage from '../pages/auth/Login'
 import NewVisit from '../pages/visits/NewVisit'
 import VisitList from '../pages/visits/VisitList'
+import VisitDetail from '../pages/visits/VisitDetail'
 import AdminUsers from '../pages/admin/AdminUsers'
 // import RegisterPage from '../pages/auth/Register'
 
@@ -31,6 +32,7 @@ export default function AppRoutes() {
                     <Route path="dashboard" element={<DashboardPage />} />
                     <Route path="visits/new" element={<NewVisit />} />
                     <Route path="visits/list" element={<VisitList />} />
+                    <Route path="visits/:id" element={<VisitDetail />} />
                     <Route path="admin/users" element={<AdminUsers />} />
                 </Route>
             </Routes>

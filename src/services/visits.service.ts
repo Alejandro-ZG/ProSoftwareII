@@ -46,6 +46,18 @@ export async function getAllVisits(): Promise<Visit[]> {
   return data as Visit[]
 }
 
+// - Obtener una visita específica por ID
+export async function getVisitById(visitId: string): Promise<Visit> {
+  const { data, error } = await supabase
+    .from('visits')
+    .select('*')
+    .eq('id', visitId)
+    .single()
+
+  if (error) throw error
+  return data as Visit
+}
+
 // - Función auxiliar para generar token QR
 function generateQRToken(): string {
   return (
