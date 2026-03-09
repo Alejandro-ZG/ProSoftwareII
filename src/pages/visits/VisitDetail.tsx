@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getVisitById } from '../../services/visits.service'
 import { formatDate } from '../../utils/formatDate'
+import QRGenerator from '../../components/shared/QRGenerator'
 import type { Visit } from '../../types/index'
 
 const VisitDetail: React.FC = () => {
@@ -10,6 +11,7 @@ const VisitDetail: React.FC = () => {
     const [visit, setVisit] = useState<Visit | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const [showQRModal, setShowQRModal] = useState(false)
 
     useEffect(() => {
         loadVisit()
@@ -241,7 +243,7 @@ const VisitDetail: React.FC = () => {
                 {/* Botones de Acción */}
                 <div style={{ display: 'flex', gap: '10px' }}>
                     <button
-                        onClick={() => navigate('/visits/list')}
+                        onClick={() => setShowQRModal(true)}
                         style={{
                             flex: 1,
                             padding: '12px',
@@ -254,10 +256,35 @@ const VisitDetail: React.FC = () => {
                             fontWeight: 'bold'
                         }}
                     >
+                        Ver QR
+                    </button>
+                    <button
+                        onClick={() => navigate('/visits/list')}
+                        style={{
+                            flex: 1,
+                            padding: '12px',
+                            backgroundColor: '#2a3034',
+                            color: '#ffffff',
+                            border: 'none',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            fontSize: '16px',
+                            fontWeight: 'bold'
+                        }}
+                    >
                         Volver a Visitas
                     </button>
                 </div>
             </div>
+
+            {/* Modal QR */}
+            {showQRModal && visit && (
+                <QRGenerator 
+                    visit={visit}
+                    mode="modal"
+                    onClose={() => setShowQRModal(false)}
+                />
+            )}
         </div>
     )
 }
